@@ -30,6 +30,4 @@ The second approach uses the `SectionList` component, which is a very powerful c
 
 In a huge number of data case, I do think `SectionList` can be the better choice due to its derivation from `VirtualList`. However, if we do not have a lot of data and also the data didn't need to real time, scroll view should suffice.
 
-Run on expo.
-
-exp://exp.host/@idraki/DashboardStickyHeader
+[Run on expo](exp://exp.host/@idraki/DashboardStickyHeader)
