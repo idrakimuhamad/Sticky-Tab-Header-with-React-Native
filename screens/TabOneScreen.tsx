@@ -93,6 +93,7 @@ const Item = ({
               <Text
                 style={{
                   fontSize: 12,
+                  lineHeight: 18,
                   color: item.percent_change < 0 ? "red" : "green",
                 }}
               >
