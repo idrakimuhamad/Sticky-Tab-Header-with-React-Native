@@ -2,18 +2,18 @@ import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps } from "@react-navigation/core";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import * as React from "react";
-import { Pressable, StyleSheet } from "react-native";
+import { Button, StyleSheet } from "react-native";
 import { Text, View } from "../components/Themed";
 import { RootStackParamList, RootTabParamList } from "../types";
 
-type TabTwoScreenProps = CompositeScreenProps<
-  BottomTabScreenProps<RootTabParamList, "TabTwo">,
+type TabThreeScreenProps = CompositeScreenProps<
+  BottomTabScreenProps<RootTabParamList, "TabThree">,
   NativeStackScreenProps<RootStackParamList>
 >;
 
-export default function TabTwoScreen({ navigation }: TabTwoScreenProps) {
+export default function TabThreeScreen({ navigation }: TabThreeScreenProps) {
   function handleGoExample() {
-    navigation.navigate("MultiSticky");
+    navigation.navigate("CollapsibleSticky");
   }
 
   return (
@@ -24,9 +24,10 @@ export default function TabTwoScreen({ navigation }: TabTwoScreenProps) {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <Pressable onPress={handleGoExample}>
-        <Text>Multi sticky header example</Text>
-      </Pressable>
+      <Button
+        onPress={handleGoExample}
+        title="Collapsible sticky header example"
+      />
     </View>
   );
 }

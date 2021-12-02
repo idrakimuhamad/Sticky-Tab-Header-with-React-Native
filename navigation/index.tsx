@@ -15,9 +15,12 @@ import * as React from "react";
 import { ColorSchemeName } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import CollapsibleStickyScreen from "../screens/CollapsibleStickyScreen";
 import ModalScreen from "../screens/ModalScreen";
+import MultiStickyScreen from "../screens/MultiStickyScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
+import TabThreeScreen from "../screens/TabThreeScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import {
   RootStackParamList,
@@ -56,9 +59,27 @@ function RootNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
+        name="CollapsibleSticky"
+        component={CollapsibleStickyScreen}
+        options={{ title: "Issues", headerShown: false }}
+      />
+      <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: "Oops!" }}
+      />
+      <Stack.Screen
+        name="MultiSticky"
+        component={MultiStickyScreen}
+        options={{
+          title: "",
+          headerTitleStyle: {
+            color: Colors.dark.text,
+          },
+          headerStyle: {
+            backgroundColor: Colors.light.dark,
+          },
+        }}
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
@@ -95,21 +116,6 @@ function BottomTabNavigator() {
           tabBarLabel: "Tab One",
           headerTintColor: "white",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          // headerRight: () => (
-          //   <Pressable
-          //     onPress={() => navigation.navigate("Modal")}
-          //     style={({ pressed }) => ({
-          //       opacity: pressed ? 0.5 : 1,
-          //     })}
-          //   >
-          //     <FontAwesome
-          //       name="info-circle"
-          //       size={25}
-          //       color={Colors[colorScheme].text}
-          //       style={{ marginRight: 15 }}
-          //     />
-          //   </Pressable>
-          // ),
         })}
       />
       <BottomTab.Screen
@@ -117,6 +123,14 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: "Tab Two",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="TabThree"
+        component={TabThreeScreen}
+        options={{
+          title: "Tab Three",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
